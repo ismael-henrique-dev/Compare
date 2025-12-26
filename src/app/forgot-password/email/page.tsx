@@ -1,3 +1,9 @@
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Enviar email',
+}
+
 export default function Email() {
   return (
     <div>
