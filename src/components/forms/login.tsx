@@ -33,6 +33,7 @@ export function LoginForm() {
 
       if (response === 'success') {
         toast.success(response)
+        console.log('Deu certo')
         redirect('/platform/home')
       } else {
         toast.error(response)
@@ -81,7 +82,7 @@ export function LoginForm() {
               Senha
             </Label>
             <Link
-              href='/forgot-password/send-email'
+              href='/forgot-password/email'
               className='ml-auto text-sm underline-offset-2 underline font-rubik'
             >
               Esqueci a senha

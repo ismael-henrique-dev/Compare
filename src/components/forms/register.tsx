@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label'
 import { PasswordInput } from '../ui/password-input'
 import { useTransition } from 'react'
 import { redirect } from 'next/navigation'
-import { LoginFormData, loginFormSchema } from '@/validators/login'
+import { RegisterFormData, registerFormSchema } from '@/validators/register'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { Spinner } from '../ui/spinner'
@@ -21,12 +21,12 @@ export function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormData>({
+  } = useForm<RegisterFormData>({
     mode: 'onChange',
-    resolver: zodResolver(loginFormSchema),
+    resolver: zodResolver(registerFormSchema),
   })
 
-  const handleLoginUser = (data: LoginFormData) => {
+  const handleLoginUser = (data: RegisterFormData) => {
     startTransition(async () => {
       console.log(data)
       const response = 'success'
