@@ -1,0 +1,13 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Nova senha',
+}
+
+export default function NewPassword() {
+  return (
+    <div>
+      <h1>NewPassword</h1>
+    </div>
+  )
+}
