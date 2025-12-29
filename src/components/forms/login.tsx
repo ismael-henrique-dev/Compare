@@ -14,6 +14,7 @@ import { toast } from 'sonner'
 import { FieldSeparator } from "@/components/ui/field"
 import Link from 'next/link'
 import { authClient } from '@/lib/auth-client'
+import { IconBrandGoogleFilled } from '@tabler/icons-react'
 
 export function LoginForm() {
   const [isPending, startTransition] = useTransition()
@@ -81,9 +82,70 @@ export function LoginForm() {
             <Label htmlFor='password' className='font-semibold font-rubik'>
               Senha
             </Label>
+            <Input
+              id='email'
+              type='email'
+              placeholder='m@example.com'
+              aria-invalid={!!errors.email}
+              {...register('email')}
+            />
+            {errors.email && (
+              <p className='text-red-700 text-sm'>{errors.email.message}</p>
+            )}
+          </div>
+          <div className='grid gap-1'>
+            <div className='flex items-center'>
+              <Label htmlFor='password' className='font-semibold font-rubik'>
+                Senha
+              </Label>
+              <Link
+                href='/forgot-password/email'
+                className='ml-auto text-sm underline-offset-2 underline font-rubik'
+              >
+                Esqueci a senha
+              </Link>
+            </div>
+            <PasswordInput
+              id='password'
+              placeholder='Insira sua senha'
+              aria-invalid={!!errors.password}
+              {...register('password')}
+            />
+            {errors.password && (
+              <p className='text-red-700 text-sm'>{errors.password.message}</p>
+            )}
+          </div>
+
+          <Button
+            type='submit'
+            variant='authprimary'
+            className='w-full cursor-pointer'
+            disabled={isPending}
+          >
+            {isPending && <Spinner />}
+            {isPending ? <p className='font-rubik text-[16px]'>Entrando...</p> : <p className='font-rubik text-[16px]'>Entrar</p>}
+          </Button>
+
+          <FieldSeparator className='grid gap-1 *:data-[slot=field-separator-content]:bg-card'>
+            ou
+          </FieldSeparator>
+
+          <Button
+            onClick={handleLoginWithGoogleUser}
+            variant='authSecondary'
+            type='button'
+            className='w-full cursor-pointer'
+          >
+            <IconBrandGoogleFilled className="size-5 opacity-100 text-black"/>
+            <p className='font-rubik text-[14px]'>Fazer login com Google</p>
+          </Button>
+          <div className='flex flex-row justify-center gap-1'>
+            <p className='font-rubik text-sm text-text-primary text-[16px]'>
+              Não tem uma conta?
+            </p>
             <Link
-              href='/forgot-password/email'
-              className='ml-auto text-sm underline-offset-2 underline font-rubik'
+              href='/register'
+              className='text-sm underline-offset-2 underline font-rubik text-text-primary text-[16px]'
             >
               Esqueci a senha
             </Link>
