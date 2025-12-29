@@ -14,7 +14,7 @@ const buttonVariants = cva(
     },
     variants: {
       size: {
-        default: "h-9 px-[calc(--spacing(3)-1px)] sm:h-8",
+        default: "h-9 pt-3 pb-3 px-[calc(--spacing(3)-1px)]",
         icon: "size-9 sm:size-8",
         "icon-lg": "size-10 sm:size-9",
         "icon-sm": "size-8 sm:size-7",
@@ -40,6 +40,10 @@ const buttonVariants = cva(
           "border-border bg-background bg-clip-padding shadow-xs not-disabled:not-active:not-data-pressed:before:shadow-[0_1px_--theme(--color-black/4%)] dark:bg-input/32 dark:not-in-data-[slot=group]:bg-clip-border dark:not-disabled:before:shadow-[0_-1px_--theme(--color-white/4%)] dark:not-disabled:not-active:not-data-pressed:before:shadow-[0_-1px_--theme(--color-white/8%)] [:disabled,:active,[data-pressed]]:shadow-none [:hover,[data-pressed]]:bg-accent/50 dark:[:hover,[data-pressed]]:bg-input/64",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/90 [:active,[data-pressed]]:bg-secondary/80",
+        authprimary:
+          'font-normal not-disabled:inset-shadow-[0_1px_--theme(--color-white/16%)] rounded-[12px] gap-2 border border-black bg-black text-white shadow-black/24 shadow-xs hover:bg-black/90 [:active,[data-pressed]]:inset-shadow-[0_1px_--theme(--color-black/8%)] [:disabled,:active,[data-pressed]]:shadow-none',
+        authSecondary:
+          'font-normal rounded-lg border border-[#D4D4D4] dark:border-[#D4D4D4] bg-background bg-clip-padding shadow-xs gap-2 not-disabled:not-active:not-data-pressed:before:shadow-[0_1px_--theme(--color-black/4%)] dark:bg-input/32 dark:not-in-data-[slot=group]:bg-clip-border dark:not-disabled:before:shadow-[0_-1px_--theme(--color-white/4%)] dark:not-disabled:not-active:not-data-pressed:before:shadow-[0_-1px_--theme(--color-white/8%)] [:disabled,:active,[data-pressed]]:shadow-none [:hover,[data-pressed]]:bg-accent/50 dark:[:hover,[data-pressed]]:bg-input/64',
       },
     },
   },

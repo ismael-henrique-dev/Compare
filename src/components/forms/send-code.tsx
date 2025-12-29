@@ -3,8 +3,7 @@
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '../ui/input-otp'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 type SendCodeFormProps = React.ComponentProps<'form'> & {
@@ -17,6 +16,11 @@ export function SendCodeForm({
   ...props
 }: SendCodeFormProps) {
 
+  const router = useRouter()
+  
+  const handleBack = () => {
+    router.back()
+  }
   
   const [code, setCode] = useState('')
   const [error, setError] = useState('')
@@ -79,13 +83,23 @@ export function SendCodeForm({
             {error}
           </p>
         )}
-        <Button type='submit' className='w-full'>
-          Enviar
-        </Button>
       </div>
-      <Button variant='outline' className='w-full cursor-pointer'>
-        <Link href='/forgot-password/send-email'>Voltar</Link>
-      </Button>
+      <Button
+          type='submit'
+          className='w-full cursor-pointer'
+          variant='authprimary'
+        >
+          <p className='font-rubik text-[16px]'>Concluir</p>
+        </Button>
+
+        <Button
+          type='button'
+          variant='authSecondary'
+          onClick={handleBack}
+          className='w-full cursor-pointer'
+        >
+          <p className='font-rubik text-[16px]'>Voltar</p>
+        </Button>
     </form>
   )
 }
