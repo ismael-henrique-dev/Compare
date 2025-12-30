@@ -1,13 +1,41 @@
-import { Metadata } from "next"
+import { SendEmailForm } from '@/components/forms/send-email'
+import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Enviar email',
+  title: 'Enviar Email',
 }
 
-export default function Email() {
+export default function SendEmail() {
   return (
-    <div>
-      <h1>Email</h1>
+    <div className='grid min-h-svh lg:grid-cols-2'>
+      <div className='bg-brand relative hidden w-full h-full lg:flex items-center justify-center'>
+        <Image
+          src='/logo-auth.png'
+          alt='Compare Logo'
+          width={256}
+          height={256}
+          className='h-auto w-92 object-contain'
+          priority
+        />
+      </div>
+      <div className='flex flex-col gap-4 md:p-10'>
+        <div className='flex flex-1 items-center justify-center'>
+          <div className='w-full md:max-w-md'>
+            <div className='w-full lg:hidden flex items-center justify-center mb-6'>
+              <Image
+                src='/logo-auth.png'
+                alt='Compare Logo'
+                width={160}
+                height={160}
+                className='h-auto w-64 object-contain brightness-0'
+                priority
+              />
+            </div>
+            <SendEmailForm />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -15,6 +15,7 @@
   --popover: var(--color-white);
   --popover-foreground: var(--color-zinc-800);
   --primary: var(--color-zinc-800);
+  --primary-text-color: #737373;
   --primary-foreground: var(--color-zinc-50);
   --secondary: --alpha(var(--color-black) / 4%);
   --secondary-foreground: var(--color-zinc-800);
@@ -88,6 +89,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-text-primary: var(--primary-text-color);
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
@@ -199,7 +201,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
