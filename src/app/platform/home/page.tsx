@@ -1,10 +1,13 @@
-import { Button } from '@/components/core/button'
+import { HomeBanner } from '@/components/home/banner'
+import ProductLists from '@/components/home/products'
+import Stores from '@/components/home/stores'
 
 export default function Home() {
   return (
-    <div>
-      <h1 className='font-rubik'>Home - Platform</h1>
-      <Button isLoading>asasas</Button>
+    <div className='bg-accent p-5'>
+      <HomeBanner />
+      <Stores />
+      <ProductLists />
     </div>
   )
 }

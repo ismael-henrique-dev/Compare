@@ -49,11 +49,12 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-background: #EAEAEB;
   --color-foreground: var(--foreground);
   --font-rubik: var(--font-rubik);
 
-  --color-brand: var(--brand-green);
+  --color-brand: #1b7e2f;
+  --color-green-glass: #4ADE80;
   --color-brand-hover: var(--brand-green-hover);
   --animate-skeleton: skeleton 2s -1s infinite linear;
   --color-warning-foreground: var(--warning-foreground);
