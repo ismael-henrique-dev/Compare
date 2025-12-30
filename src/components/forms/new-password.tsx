@@ -89,18 +89,19 @@ export function NewPasswordForm() {
           type='submit'
           className='w-full cursor-pointer'
           disabled={isPending}
+          variant='authprimary'
         >
           {isPending && <Spinner />}
-          {isPending ? 'Entrando...' : 'Entrar'}
+          {isPending ? <p className='font-rubik text-[16px]'>Concluindo...</p> : <p className='font-rubik text-[16px]'>Concluir</p>}
         </Button>
 
         <Button
           type='button'
-          variant='outline'
+          variant='authSecondary'
           onClick={handleBack}
           className='w-full cursor-pointer'
         >
-          Voltar
+          <p className='font-rubik text-[16px]'>Voltar</p>
         </Button>
       </div>
     </form>

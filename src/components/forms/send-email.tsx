@@ -80,18 +80,19 @@ export function SendEmailForm({
           type='submit'
           className='w-full cursor-pointer'
           disabled={isPending}
+          variant='authprimary'
         >
           {isPending && <Spinner />}
-          {isPending ? 'Enviando...' : 'Enviar'}
+          {isPending ? <p className='font-rubik text-[16px]'>Entrando...</p> : <p className='font-rubik text-[16px]'>Entrar</p>}
         </Button>
 
       </div>
       <Button
         onClick={handleBack}
-        variant='outline'
+        variant='authSecondary'
         className='w-full cursor-pointer'
       >
-        Voltar
+        <p className='font-rubik text-[16px]'>Voltar</p>
       </Button>
     </form>
   )
