@@ -116,7 +116,7 @@ export function RegisterForm() {
             {isPending ? <p className='font-rubik text-[16px]'>Entrando...</p> : <p className='font-rubik text-[16px]'>Entrar</p>}
           </Button>
 
-          <FieldSeparator className='grid gap-1 *:data-[slot=field-separator-content]:bg-card'>
+          <FieldSeparator className='grid gap-1 '>
             ou
           </FieldSeparator>
 

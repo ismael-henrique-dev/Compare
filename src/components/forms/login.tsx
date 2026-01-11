@@ -15,6 +15,7 @@ import { FieldSeparator } from "@/components/ui/field"
 import Link from 'next/link'
 import { authClient } from '@/lib/auth-client'
 import { IconBrandGoogleFilled } from '@tabler/icons-react'
+import { login } from '@/HTTP/auth/login'
 
 export function LoginForm() {
   const [isPending, startTransition] = useTransition()
@@ -28,16 +29,16 @@ export function LoginForm() {
     resolver: zodResolver(loginFormSchema),
   })
 
-  const handleLoginUser = () => {
+  const handleLoginUser = (data: LoginFormData) => {
     startTransition(async () => {
-      const response = 'success'
+      const response = await login(data)
 
-      if (response === 'success') {
-        toast.success(response)
+      if (response.status === 'success') {
+        toast.success(response.message)
         console.log('Deu certo')
         redirect('/platform/home')
       } else {
-        toast.error(response)
+        toast.error(response.message)
       }
     })
   }
@@ -110,7 +111,7 @@ export function LoginForm() {
             {isPending ? <p className='font-rubik text-[16px]'>Entrando...</p> : <p className='font-rubik text-[16px]'>Entrar</p>}
           </Button>
 
-          <FieldSeparator className='grid gap-1 *:data-[slot=field-separator-content]:bg-card'>
+          <FieldSeparator className='grid gap-1 '>
             ou
           </FieldSeparator>
 
