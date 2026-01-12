@@ -1,10 +1,9 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-
   --brand-green: #1b7e2f;
   --brand-green-hover: #156325;
   --radius: 0.625rem;
@@ -20,7 +19,11 @@
   --secondary: --alpha(var(--color-black) / 4%);
   --secondary-foreground: var(--color-zinc-800);
   --muted: --alpha(var(--color-black) / 4%);
-  --muted-foreground: color-mix(in srgb, var(--color-zinc-500) 90%, var(--color-black));
+  --muted-foreground: color-mix(
+    in srgb,
+    var(--color-zinc-500) 90%,
+    var(--color-black)
+  );
   --accent: --alpha(var(--color-black) / 4%);
   --accent-foreground: var(--color-zinc-800);
   --destructive: var(--color-red-500);
@@ -50,12 +53,12 @@
 }
 
 @theme inline {
-  --color-background: #EAEAEB;
+  --color-background: #eaeaeb;
   --color-foreground: var(--foreground);
   --font-rubik: var(--font-rubik);
 
   --color-brand: #1b7e2f;
-  --color-green-glass: #4ADE80;
+  --color-green-glass: #4ade80;
   --color-brand-hover: var(--brand-green-hover);
   --animate-skeleton: skeleton 2s -1s infinite linear;
   --color-warning-foreground: var(--warning-foreground);
@@ -103,8 +106,8 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   @keyframes skeleton {
-  to {
-    background-position: -200% 0;
+    to {
+      background-position: -200% 0;
     }
   }
 }
@@ -121,8 +124,11 @@ body {
 }
 
 .dark {
-
-  --background: color-mix(in srgb, var(--color-zinc-950) 98%, var(--color-white));
+  --background: color-mix(
+    in srgb,
+    var(--color-zinc-950) 98%,
+    var(--color-white)
+  );
 
   --foreground: var(--color-zinc-200);
 
@@ -144,7 +150,11 @@ body {
 
   --muted: --alpha(var(--color-white) / 6%);
 
-  --muted-foreground: color-mix(in srgb, var(--color-zinc-500) 90%, var(--color-white));
+  --muted-foreground: color-mix(
+    in srgb,
+    var(--color-zinc-500) 90%,
+    var(--color-white)
+  );
 
   --accent: --alpha(var(--color-white) / 6%);
 
@@ -205,5 +215,12 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
   }
 }
