@@ -1,8 +1,24 @@
-import * as React from "react"
+"use client";
 
-import { cn } from "@/lib/utils"
+import { Input as InputPrimitive } from "@base-ui/react/input";
+import type * as React from "react";
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+import { cn } from "@/lib/utils";
+
+type InputProps = Omit<
+  InputPrimitive.Props & React.RefAttributes<HTMLInputElement>,
+  "size"
+> & {
+  size?: "sm" | "default" | "lg" | number;
+  unstyled?: boolean;
+};
+
+function Input({
+  className,
+  size = "default",
+  unstyled = false,
+  ...props
+}: InputProps) {
   return (
     <span
       className={
@@ -31,7 +47,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         {...props}
       />
     </span>
-  )
+  );
 }
 
-export { Input }
+export { Input, type InputProps };
