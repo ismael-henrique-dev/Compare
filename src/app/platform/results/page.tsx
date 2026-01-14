@@ -1,14 +1,6 @@
 import { FiltersSheet } from '@/components/results/filters-sheet'
-import { ProductsList } from '@/components/results/products-list'
-
-const MOCK_PRODUCTS = Array.from({ length: 8 }).map((_, i) => ({
-  id: i,
-  title: 'Placa de Video Galax',
-  description: 'GTX 1650 4 GB GDDR6 128 Bits Asus TUF-GTX1650-4GD6-P-',
-  store: 'Terabyte',
-  price: 'R$ 879,00',
-  image: '/placeholder-gpu.png', // Substitua pelo caminho da sua imagem de GPU
-}))
+import { ProductsData } from '@/components/results/products-data'
+import { Suspense } from 'react'
 
 export default function Results() {
   return (
@@ -20,7 +12,9 @@ export default function Results() {
         </div>
         <FiltersSheet />
       </div>
-      <ProductsList products={MOCK_PRODUCTS} />
+      <Suspense fallback={'Carregando...'}>
+        <ProductsData />
+      </Suspense>
     </div>
   )
 }
