@@ -1,16 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card'
+import { ProductDTO } from '@/DTOs/product'
 import Image from 'next/image'
 
-const MOCK_PRODUCTS = Array.from({ length: 8 }).map((_, i) => ({
-  id: i,
-  title: 'Placa de Video Galax',
-  description: 'GTX 1650 4 GB GDDR6 128 Bits Asus TUF-GTX1650-4GD6-P-',
-  store: 'Terabyte',
-  price: 'R$ 879,00',
-  image: '/placeholder-gpu.png', // Substitua pelo caminho da sua imagem de GPU
-}))
-
-export function ProductsList({ products }: { products: typeof MOCK_PRODUCTS }) {
+export function ProductsList({ products }: { products: ProductDTO[] }) {
   return (
     <div className='flex flex-wrap'>
       {products.map((product) => (
@@ -26,15 +18,15 @@ export function ProductsList({ products }: { products: typeof MOCK_PRODUCTS }) {
   )
 }
 
-function ProductCard({ product }: { product: (typeof MOCK_PRODUCTS)[0] }) {
+function ProductCard({ product }: { product: ProductDTO }) {
   return (
     <Card className='border-none shadow-none bg-white rounded-lg overflow-hidden flex flex-col'>
       {/* Área da Imagem com Fundo Cinza */}
       <div className='bg-[#F5F5F5] m-4 rounded-lg h-55 flex items-center justify-center overflow-hidden'>
         <div className='relative w-[80%] h-[80%]'>
           <Image
-            src={product.image || '/placeholder-gpu.png'}
-            alt={product.title}
+            src={product.imageUrl || '/placeholder-gpu.png'}
+            alt={product.slug}
             fill
             className='object-contain'
           />
@@ -61,7 +53,7 @@ function ProductCard({ product }: { product: (typeof MOCK_PRODUCTS)[0] }) {
         {/* Preço em Destaque */}
         <div className='mt-4'>
           <span className='text-2xl font-bold text-[#16A34A]'>
-            {product.price}
+            {product.value}
           </span>
         </div>
       </CardContent>
