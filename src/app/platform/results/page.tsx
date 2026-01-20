@@ -2,7 +2,16 @@ import { FiltersSheet } from '@/components/results/filters-sheet'
 import { ProductsData } from '@/components/results/products-data'
 import { Suspense } from 'react'
 
-export default function Results() {
+export default async function Results(props: {
+  searchParams?: Promise<{
+    store?: string
+    query?: string
+    page?: number
+    class?: string
+  }>
+}) {
+  const searchParams = await props.searchParams
+
   return (
     <div className='p-5 space-y-10'>
       <div className='flex justify-between items-center'>
@@ -12,7 +21,7 @@ export default function Results() {
         </div>
         <FiltersSheet />
       </div>
-      <Suspense fallback={'Carregando...'}>
+      <Suspense fallback={'Carregando produtos...'}>
         <ProductsData />
       </Suspense>
     </div>

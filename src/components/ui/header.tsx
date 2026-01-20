@@ -1,12 +1,12 @@
 import { IconBell, IconUser } from '@tabler/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Search } from './search'
 import { Popover, PopoverContent, PopoverTrigger } from './popover'
 import NotificationContent from '../alerts/notifications'
 import PerfilDetails from '../profile/profile'
 import AvatarPerfil from './avatar-profile'
 import { getCurrentUser } from '@/lib/auth/getCurrentUser'
+import { SearchBar } from './search-bar'
 
 type HeaderProps = {
   showFilters?: boolean
@@ -33,7 +33,8 @@ export async function Header({ showFilters = true }: HeaderProps) {
           <Image src='/logo-header.png' alt='Logo' width={176} height={48} />
         </Link>
 
-        <Search placeholder='Buscar produto...' />
+        <SearchBar placeholder='Buscar produto...' />
+
         <div>
           <nav>
             <ul className='flex gap-4'>
